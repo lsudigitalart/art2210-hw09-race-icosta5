@@ -6,6 +6,7 @@ let ant4;
 let ant5;
 let img1;
 let img2;
+let song;
 
 function setup() {
   createCanvas(3000, 1000);
@@ -16,11 +17,16 @@ function setup() {
   ant4 = new Ant(0, 70, 700, 50, color(241, 200, 81));
   ant5 = new Ant(0, 60, 900, 50, color(158, 31, 246));
 }
+// loop: 0:05 -> 0:55
+const loopStartSec = 5;
+const loopDuration = 50;
 
 //load images
 function preload() {
+song = loadSound('assets/saxophone.mp3');
 img1 = loadImage('assets/grass.jpg');
 img2 = loadImage('assets/finish line.jpg');
+
 }
 
 function draw() {
@@ -81,6 +87,14 @@ function mousePressed() {
     ant3.speed = random(0, 12);
     ant4.speed = random(0, 12);
     ant5.speed = random(0, 12);
+
+    //if mouse is pressed, start or stop clip
+   if (song.isPlaying()) {
+     song.stop();
+     song.play();
+   } else {
+     song.play(0, 1, 1, loopStartSec, loopDuration);
+}
 }
 
 function Ant(tempSpeed,  tempSize, tempY, tempX, tempColor) {
