@@ -91,7 +91,7 @@ function mousePressed() {
     //if mouse is pressed, start or stop clip
    if (song.isPlaying()) {
      song.stop();
-     song.play();
+     song.play(0, 1, 1, loopStartSec, loopDuration);
    } else {
      song.play(0, 1, 1, loopStartSec, loopDuration);
 }
