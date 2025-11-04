@@ -1,4 +1,4 @@
-//establishing global variables for instances
+//establishing global variables for instances 
 let ant1;
 let ant2;
 let ant3;
